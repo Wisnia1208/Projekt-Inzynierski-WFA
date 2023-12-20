@@ -12,6 +12,7 @@ using System.IO.Ports;
 using System.Reflection;
 using System.Threading;
 
+//test commita
 
 namespace WindowsFormsApp1
 {
