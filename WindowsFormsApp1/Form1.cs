@@ -12,9 +12,6 @@ using System.IO.Ports;
 using System.Reflection;
 using System.Threading;
 
-//test commita
-//test commita2
-
 namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
