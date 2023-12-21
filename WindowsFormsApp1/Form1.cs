@@ -19,7 +19,8 @@ namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
-        private SerialPort serialPort = new SerialPort("COM4", 115200);
+        public const string COM = "COM4";
+        private SerialPort serialPort = new SerialPort(COM, 115200);
         private string receivedData_global;
         //private object textBoxReceivedData;
 
