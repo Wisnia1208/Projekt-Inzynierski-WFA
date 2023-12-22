@@ -104,6 +104,10 @@ namespace WindowsFormsApp1
 
             if (receivedData_global == "correct login data\r")
             {
+                if (serialPort.IsOpen)
+                {
+                    serialPort.Close();
+                }
                 var newform = new Form2(this);
                 newform.Show();
                 this.Hide();

@@ -79,6 +79,7 @@
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
+            this.button21 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -540,11 +541,22 @@
             this.label31.TabIndex = 46;
             this.label31.Text = "platforma";
             // 
+            // button21
+            // 
+            this.button21.Location = new System.Drawing.Point(598, 33);
+            this.button21.Name = "button21";
+            this.button21.Size = new System.Drawing.Size(75, 23);
+            this.button21.TabIndex = 51;
+            this.button21.Text = "załaduj";
+            this.button21.UseVisualStyleBackColor = true;
+            this.button21.Click += new System.EventHandler(this.button21_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button21);
             this.Controls.Add(this.button19);
             this.Controls.Add(this.button20);
             this.Controls.Add(this.label29);
@@ -656,5 +668,6 @@
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Button button21;
     }
 }
