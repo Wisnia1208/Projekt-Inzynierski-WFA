@@ -88,10 +88,11 @@ namespace WindowsFormsApp1
         {
             SendDataToESP32("login_query");
 
-            serialPort.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
+            receivedData_global = serialPort.ReadLine();
             while (receivedData_global == null)
             {
                 await Task.Delay(100); // Odczekaj krótki czas przed ponownym sprawdzeniem
+                receivedData_global = serialPort.ReadLine();
             }
             int index_platform = receivedData_global.IndexOf("ptfr:") + 5;
             int index_username = receivedData_global.IndexOf("usrn:") + 5;
@@ -102,10 +103,12 @@ namespace WindowsFormsApp1
             label3.Text = receivedData_global.Substring(index_username, index_password-index_username-5);
             label4.Text = receivedData_global.Substring(index_password, index_end-index_password-1);
 
-            serialPort.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
+            receivedData_global = null;
+            receivedData_global = serialPort.ReadLine();
             while (receivedData_global == null)
             {
                 await Task.Delay(100); // Odczekaj krótki czas przed ponownym sprawdzeniem
+                receivedData_global = serialPort.ReadLine();
             }
             index_platform = receivedData_global.IndexOf("ptfr:") + 5;
             index_username = receivedData_global.IndexOf("usrn:") + 5;
@@ -115,10 +118,12 @@ namespace WindowsFormsApp1
             label6.Text = receivedData_global.Substring(index_username, index_password - index_username - 5);
             label5.Text = receivedData_global.Substring(index_password, index_end - index_password - 1);
 
-            serialPort.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
+            receivedData_global = null;
+            receivedData_global = serialPort.ReadLine();
             while (receivedData_global == null)
             {
                 await Task.Delay(100); // Odczekaj krótki czas przed ponownym sprawdzeniem
+                receivedData_global = serialPort.ReadLine();
             }
             index_platform = receivedData_global.IndexOf("ptfr:") + 5;
             index_username = receivedData_global.IndexOf("usrn:") + 5;
@@ -128,10 +133,12 @@ namespace WindowsFormsApp1
             label9.Text = receivedData_global.Substring(index_username, index_password - index_username - 5);
             label8.Text = receivedData_global.Substring(index_password, index_end - index_password - 1);
 
-            serialPort.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
+            receivedData_global = null;
+            receivedData_global = serialPort.ReadLine();
             while (receivedData_global == null)
             {
                 await Task.Delay(100); // Odczekaj krótki czas przed ponownym sprawdzeniem
+                receivedData_global = serialPort.ReadLine();
             }
             index_platform = receivedData_global.IndexOf("ptfr:") + 5;
             index_username = receivedData_global.IndexOf("usrn:") + 5;
@@ -141,10 +148,12 @@ namespace WindowsFormsApp1
             label12.Text = receivedData_global.Substring(index_username, index_password - index_username - 5);
             label11.Text = receivedData_global.Substring(index_password, index_end - index_password - 1);
 
-            serialPort.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
+            receivedData_global = null;
+            receivedData_global = serialPort.ReadLine();
             while (receivedData_global == null)
             {
                 await Task.Delay(100); // Odczekaj krótki czas przed ponownym sprawdzeniem
+                receivedData_global = serialPort.ReadLine();
             }
             index_platform = receivedData_global.IndexOf("ptfr:") + 5;
             index_username = receivedData_global.IndexOf("usrn:") + 5;
@@ -154,10 +163,12 @@ namespace WindowsFormsApp1
             label15.Text = receivedData_global.Substring(index_username, index_password - index_username - 5);
             label14.Text = receivedData_global.Substring(index_password, index_end - index_password - 1);
 
-            serialPort.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
+            receivedData_global = null;
+            receivedData_global = serialPort.ReadLine();
             while (receivedData_global == null)
             {
                 await Task.Delay(100); // Odczekaj krótki czas przed ponownym sprawdzeniem
+                receivedData_global = serialPort.ReadLine();
             }
             index_platform = receivedData_global.IndexOf("ptfr:") + 5;
             index_username = receivedData_global.IndexOf("usrn:") + 5;
@@ -167,10 +178,12 @@ namespace WindowsFormsApp1
             label18.Text = receivedData_global.Substring(index_username, index_password - index_username - 5);
             label17.Text = receivedData_global.Substring(index_password, index_end - index_password - 1);
 
-            serialPort.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
+            receivedData_global = null;
+            receivedData_global = serialPort.ReadLine();
             while (receivedData_global == null)
             {
                 await Task.Delay(100); // Odczekaj krótki czas przed ponownym sprawdzeniem
+                receivedData_global = serialPort.ReadLine();
             }
             index_platform = receivedData_global.IndexOf("ptfr:") + 5;
             index_username = receivedData_global.IndexOf("usrn:") + 5;
@@ -180,10 +193,12 @@ namespace WindowsFormsApp1
             label21.Text = receivedData_global.Substring(index_username, index_password - index_username - 5);
             label20.Text = receivedData_global.Substring(index_password, index_end - index_password - 1);
 
-            serialPort.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
+            receivedData_global = null;
+            receivedData_global = serialPort.ReadLine();
             while (receivedData_global == null)
             {
                 await Task.Delay(100); // Odczekaj krótki czas przed ponownym sprawdzeniem
+                receivedData_global = serialPort.ReadLine();
             }
             index_platform = receivedData_global.IndexOf("ptfr:") + 5;
             index_username = receivedData_global.IndexOf("usrn:") + 5;
@@ -193,10 +208,12 @@ namespace WindowsFormsApp1
             label24.Text = receivedData_global.Substring(index_username, index_password - index_username - 5);
             label23.Text = receivedData_global.Substring(index_password, index_end - index_password - 1);
 
-            serialPort.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
+            receivedData_global = null;
+            receivedData_global = serialPort.ReadLine();
             while (receivedData_global == null)
             {
                 await Task.Delay(100); // Odczekaj krótki czas przed ponownym sprawdzeniem
+                receivedData_global = serialPort.ReadLine();
             }
             index_platform = receivedData_global.IndexOf("ptfr:") + 5;
             index_username = receivedData_global.IndexOf("usrn:") + 5;
@@ -206,10 +223,12 @@ namespace WindowsFormsApp1
             label27.Text = receivedData_global.Substring(index_username, index_password - index_username - 5);
             label26.Text = receivedData_global.Substring(index_password, index_end - index_password - 1);
 
-            serialPort.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
+            receivedData_global = null;
+            receivedData_global = serialPort.ReadLine();
             while (receivedData_global == null)
             {
                 await Task.Delay(100); // Odczekaj krótki czas przed ponownym sprawdzeniem
+                receivedData_global = serialPort.ReadLine();
             }
             index_platform = receivedData_global.IndexOf("ptfr:") + 5;
             index_username = receivedData_global.IndexOf("usrn:") + 5;
@@ -218,6 +237,124 @@ namespace WindowsFormsApp1
             label31.Text = receivedData_global.Substring(index_platform, index_username - index_platform - 5);
             label30.Text = receivedData_global.Substring(index_username, index_password - index_username - 5);
             label29.Text = receivedData_global.Substring(index_password, index_end - index_password - 1);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (serialPort.IsOpen)
+            {
+                serialPort.Close();
+            }
+            var newform = new Form3(0);
+            newform.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            {
+                if (serialPort.IsOpen)
+                {
+                    serialPort.Close();
+                }
+                var newform = new Form3(1);
+                newform.Show();
+            }
+        }
+
+        private void button20_Click(object sender, EventArgs e)
+        {
+            {
+                if (serialPort.IsOpen)
+                {
+                    serialPort.Close();
+                }
+                var newform = new Form3(9);
+                newform.Show();
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            {
+                if (serialPort.IsOpen)
+                {
+                    serialPort.Close();
+                }
+                var newform = new Form3(2);
+                newform.Show();
+            }
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            {
+                if (serialPort.IsOpen)
+                {
+                    serialPort.Close();
+                }
+                var newform = new Form3(3);
+                newform.Show();
+            }
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            {
+                if (serialPort.IsOpen)
+                {
+                    serialPort.Close();
+                }
+                var newform = new Form3(4);
+                newform.Show();
+            }
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            {
+                if (serialPort.IsOpen)
+                {
+                    serialPort.Close();
+                }
+                var newform = new Form3(5);
+                newform.Show();
+            }
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            {
+                if (serialPort.IsOpen)
+                {
+                    serialPort.Close();
+                }
+                var newform = new Form3(6);
+                newform.Show();
+            }
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            {
+                if (serialPort.IsOpen)
+                {
+                    serialPort.Close();
+                }
+                var newform = new Form3(7);
+                newform.Show();
+            }
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            {
+                if (serialPort.IsOpen)
+                {
+                    serialPort.Close();
+                }
+                var newform = new Form3(8);
+                newform.Show();
+            }
         }
     }
 }
