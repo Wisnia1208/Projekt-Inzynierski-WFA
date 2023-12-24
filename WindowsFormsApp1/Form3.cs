@@ -69,22 +69,21 @@ namespace WindowsFormsApp1
                 {
                     MessageBox.Show("platforma nie może zawiertać znaku :");
                 }
-                else if (textBox1.Text.IndexOf("ą") != -1 || textBox1.Text.IndexOf("A") != -1 || textBox1.Text.IndexOf("ć") != -1 || textBox1.Text.IndexOf("Ć") != -1 || textBox1.Text.IndexOf("ę") != -1 || textBox1.Text.IndexOf("Ę") != -1 || textBox1.Text.IndexOf("ł") != -1 || textBox1.Text.IndexOf("Ł") != -1 || textBox1.Text.IndexOf("ń") != -1 || textBox1.Text.IndexOf("Ń") != -1 || textBox1.Text.IndexOf("ó") != -1 || textBox1.Text.IndexOf("Ó") != -1 || textBox1.Text.IndexOf("ś") != -1 || textBox1.Text.IndexOf("Ś") != -1 || textBox1.Text.IndexOf("ź") != -1 || textBox1.Text.IndexOf("Ź") != -1 || textBox1.Text.IndexOf("ż") != -1 || textBox1.Text.IndexOf("Ż") != -1)
+                else if (textBox1.Text.IndexOf("ą") != -1 || textBox1.Text.IndexOf("Ą") != -1 || textBox1.Text.IndexOf("ć") != -1 || textBox1.Text.IndexOf("Ć") != -1 || textBox1.Text.IndexOf("ę") != -1 || textBox1.Text.IndexOf("Ę") != -1 || textBox1.Text.IndexOf("ł") != -1 || textBox1.Text.IndexOf("Ł") != -1 || textBox1.Text.IndexOf("ń") != -1 || textBox1.Text.IndexOf("Ń") != -1 || textBox1.Text.IndexOf("ó") != -1 || textBox1.Text.IndexOf("Ó") != -1 || textBox1.Text.IndexOf("ś") != -1 || textBox1.Text.IndexOf("Ś") != -1 || textBox1.Text.IndexOf("ź") != -1 || textBox1.Text.IndexOf("Ź") != -1 || textBox1.Text.IndexOf("ż") != -1 || textBox1.Text.IndexOf("Ż") != -1)
                 {
                     MessageBox.Show("zakaz polskich znaków");
                 }
-                else if (textBox2.Text.IndexOf("ą") != -1 || textBox2.Text.IndexOf("A") != -1 || textBox2.Text.IndexOf("ć") != -1 || textBox2.Text.IndexOf("Ć") != -1 || textBox2.Text.IndexOf("ę") != -1 || textBox2.Text.IndexOf("Ę") != -1 || textBox2.Text.IndexOf("ł") != -1 || textBox2.Text.IndexOf("Ł") != -1 || textBox2.Text.IndexOf("ń") != -1 || textBox2.Text.IndexOf("Ń") != -1 || textBox2.Text.IndexOf("ó") != -1 || textBox2.Text.IndexOf("Ó") != -1 || textBox2.Text.IndexOf("ś") != -1 || textBox2.Text.IndexOf("Ś") != -1 || textBox2.Text.IndexOf("ź") != -1 || textBox2.Text.IndexOf("Ź") != -1 || textBox2.Text.IndexOf("ż") != -1 || textBox2.Text.IndexOf("Ż") != -1)
+                else if (textBox2.Text.IndexOf("ą") != -1 || textBox2.Text.IndexOf("Ą") != -1 || textBox2.Text.IndexOf("ć") != -1 || textBox2.Text.IndexOf("Ć") != -1 || textBox2.Text.IndexOf("ę") != -1 || textBox2.Text.IndexOf("Ę") != -1 || textBox2.Text.IndexOf("ł") != -1 || textBox2.Text.IndexOf("Ł") != -1 || textBox2.Text.IndexOf("ń") != -1 || textBox2.Text.IndexOf("Ń") != -1 || textBox2.Text.IndexOf("ó") != -1 || textBox2.Text.IndexOf("Ó") != -1 || textBox2.Text.IndexOf("ś") != -1 || textBox2.Text.IndexOf("Ś") != -1 || textBox2.Text.IndexOf("ź") != -1 || textBox2.Text.IndexOf("Ź") != -1 || textBox2.Text.IndexOf("ż") != -1 || textBox2.Text.IndexOf("Ż") != -1)
                 {
                     MessageBox.Show("zakaz polskich znaków");
                 }
-                else if (textBox3.Text.IndexOf("ą") != -1 || textBox3.Text.IndexOf("A") != -1 || textBox3.Text.IndexOf("ć") != -1 || textBox3.Text.IndexOf("Ć") != -1 || textBox3.Text.IndexOf("ę") != -1 || textBox3.Text.IndexOf("Ę") != -1 || textBox3.Text.IndexOf("ł") != -1 || textBox3.Text.IndexOf("Ł") != -1 || textBox3.Text.IndexOf("ń") != -1 || textBox3.Text.IndexOf("Ń") != -1 || textBox3.Text.IndexOf("ó") != -1 || textBox3.Text.IndexOf("Ó") != -1 || textBox3.Text.IndexOf("ś") != -1 || textBox3.Text.IndexOf("Ś") != -1 || textBox3.Text.IndexOf("ź") != -1 || textBox3.Text.IndexOf("Ź") != -1 || textBox3.Text.IndexOf("ż") != -1 || textBox3.Text.IndexOf("Ż") != -1)
+                else if (textBox3.Text.IndexOf("ą") != -1 || textBox3.Text.IndexOf("Ą") != -1 || textBox3.Text.IndexOf("ć") != -1 || textBox3.Text.IndexOf("Ć") != -1 || textBox3.Text.IndexOf("ę") != -1 || textBox3.Text.IndexOf("Ę") != -1 || textBox3.Text.IndexOf("ł") != -1 || textBox3.Text.IndexOf("Ł") != -1 || textBox3.Text.IndexOf("ń") != -1 || textBox3.Text.IndexOf("Ń") != -1 || textBox3.Text.IndexOf("ó") != -1 || textBox3.Text.IndexOf("Ó") != -1 || textBox3.Text.IndexOf("ś") != -1 || textBox3.Text.IndexOf("Ś") != -1 || textBox3.Text.IndexOf("ź") != -1 || textBox3.Text.IndexOf("Ź") != -1 || textBox3.Text.IndexOf("ż") != -1 || textBox3.Text.IndexOf("Ż") != -1)
                 {
                     MessageBox.Show("zakaz polskich znaków");
                 }
                 else
                 {
                     string frame = "change_data_on_" + $"{index}" + '\n';
-                    //MessageBox.Show(frame);
                     SendDataToESP32(frame);
                     SendDataToESP32(textBox1.Text + ':');
                     SendDataToESP32(textBox2.Text + ':');
