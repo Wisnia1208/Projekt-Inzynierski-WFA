@@ -29,6 +29,17 @@ namespace WindowsFormsApp1
             }
         }
 
+        private string encode(string info)
+        {
+            char[] chars = info.ToCharArray();
+
+            for (int i = 0; i < chars.Length; i++)
+            {
+                chars[i] = (char)(chars[i] - 1);
+            }
+            return new string(chars);
+        }
+
         private void SendDataToESP32(string data)
         {
             try
@@ -86,9 +97,9 @@ namespace WindowsFormsApp1
                 {
                     string frame = "change_data_on_" + $"{index}" + '\n';
                     SendDataToESP32(frame);
-                    SendDataToESP32(textBox1.Text + ':');
-                    SendDataToESP32(textBox2.Text + ':');
-                    SendDataToESP32(textBox3.Text + ':');
+                    SendDataToESP32(encode(textBox1.Text) + ':');
+                    SendDataToESP32(encode(textBox2.Text) + ':');
+                    SendDataToESP32(encode(textBox3.Text) + ':');
 
                     string data = null;
                     while(data != "done\r")

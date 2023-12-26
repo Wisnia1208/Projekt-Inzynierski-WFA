@@ -35,6 +35,17 @@ namespace WindowsFormsApp1
             Application.Exit();
         }
 
+        private string decode(string info)
+        {
+            char[] chars = info.ToCharArray();
+
+            for (int i = 0; i < chars.Length; i++)
+            {
+                chars[i] = (char)(chars[i] + 1);
+            }
+            return new string(chars);
+        }
+
         private void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
         {
             // Ta metoda zostanie wywołana, gdy dane zostaną odebrane przez port COM
@@ -99,9 +110,9 @@ namespace WindowsFormsApp1
             int index_password = receivedData_global.IndexOf("pssw:") + 5;           
             int index_end = receivedData_global.IndexOf("\r") + 1;
 
-            label2.Text = receivedData_global.Substring(index_platform, index_username-index_platform-5);
-            label3.Text = receivedData_global.Substring(index_username, index_password-index_username-5);
-            label4.Text = receivedData_global.Substring(index_password, index_end-index_password-1);
+            label2.Text = decode(receivedData_global.Substring(index_platform, index_username-index_platform-6));
+            label3.Text = decode(receivedData_global.Substring(index_username, index_password-index_username-6));
+            label4.Text = decode(receivedData_global.Substring(index_password, index_end-index_password-1));
 
             receivedData_global = null;
             receivedData_global = serialPort.ReadLine();
@@ -114,9 +125,9 @@ namespace WindowsFormsApp1
             index_username = receivedData_global.IndexOf("usrn:") + 5;
             index_password = receivedData_global.IndexOf("pssw:") + 5;
             index_end = receivedData_global.IndexOf("\r") + 1;
-            label7.Text = receivedData_global.Substring(index_platform, index_username - index_platform - 5);
-            label6.Text = receivedData_global.Substring(index_username, index_password - index_username - 5);
-            label5.Text = receivedData_global.Substring(index_password, index_end - index_password - 1);
+            label7.Text = decode(receivedData_global.Substring(index_platform, index_username - index_platform - 6));
+            label6.Text = decode(receivedData_global.Substring(index_username, index_password - index_username - 6));
+            label5.Text = decode(receivedData_global.Substring(index_password, index_end - index_password - 1));
 
             receivedData_global = null;
             receivedData_global = serialPort.ReadLine();
@@ -129,9 +140,9 @@ namespace WindowsFormsApp1
             index_username = receivedData_global.IndexOf("usrn:") + 5;
             index_password = receivedData_global.IndexOf("pssw:") + 5;
             index_end = receivedData_global.IndexOf("\r") + 1;
-            label10.Text = receivedData_global.Substring(index_platform, index_username - index_platform - 5);
-            label9.Text = receivedData_global.Substring(index_username, index_password - index_username - 5);
-            label8.Text = receivedData_global.Substring(index_password, index_end - index_password - 1);
+            label10.Text = decode(receivedData_global.Substring(index_platform, index_username - index_platform - 6));
+            label9.Text = decode(receivedData_global.Substring(index_username, index_password - index_username - 6));
+            label8.Text = decode(receivedData_global.Substring(index_password, index_end - index_password - 1));
 
             receivedData_global = null;
             receivedData_global = serialPort.ReadLine();
@@ -144,9 +155,9 @@ namespace WindowsFormsApp1
             index_username = receivedData_global.IndexOf("usrn:") + 5;
             index_password = receivedData_global.IndexOf("pssw:") + 5;
             index_end = receivedData_global.IndexOf("\r") + 1;
-            label13.Text = receivedData_global.Substring(index_platform, index_username - index_platform - 5);
-            label12.Text = receivedData_global.Substring(index_username, index_password - index_username - 5);
-            label11.Text = receivedData_global.Substring(index_password, index_end - index_password - 1);
+            label13.Text = decode(receivedData_global.Substring(index_platform, index_username - index_platform - 6));
+            label12.Text = decode(receivedData_global.Substring(index_username, index_password - index_username - 6));
+            label11.Text = decode(receivedData_global.Substring(index_password, index_end - index_password - 1));
 
             receivedData_global = null;
             receivedData_global = serialPort.ReadLine();
@@ -159,9 +170,9 @@ namespace WindowsFormsApp1
             index_username = receivedData_global.IndexOf("usrn:") + 5;
             index_password = receivedData_global.IndexOf("pssw:") + 5;
             index_end = receivedData_global.IndexOf("\r") + 1;
-            label16.Text = receivedData_global.Substring(index_platform, index_username - index_platform - 5);
-            label15.Text = receivedData_global.Substring(index_username, index_password - index_username - 5);
-            label14.Text = receivedData_global.Substring(index_password, index_end - index_password - 1);
+            label16.Text = decode(receivedData_global.Substring(index_platform, index_username - index_platform - 6));
+            label15.Text = decode(receivedData_global.Substring(index_username, index_password - index_username - 6));
+            label14.Text = decode(receivedData_global.Substring(index_password, index_end - index_password - 1));
 
             receivedData_global = null;
             receivedData_global = serialPort.ReadLine();
@@ -174,9 +185,9 @@ namespace WindowsFormsApp1
             index_username = receivedData_global.IndexOf("usrn:") + 5;
             index_password = receivedData_global.IndexOf("pssw:") + 5;
             index_end = receivedData_global.IndexOf("\r") + 1;
-            label19.Text = receivedData_global.Substring(index_platform, index_username - index_platform - 5);
-            label18.Text = receivedData_global.Substring(index_username, index_password - index_username - 5);
-            label17.Text = receivedData_global.Substring(index_password, index_end - index_password - 1);
+            label19.Text = decode(receivedData_global.Substring(index_platform, index_username - index_platform - 6));
+            label18.Text = decode(receivedData_global.Substring(index_username, index_password - index_username - 6));
+            label17.Text = decode(receivedData_global.Substring(index_password, index_end - index_password - 1));
 
             receivedData_global = null;
             receivedData_global = serialPort.ReadLine();
@@ -189,9 +200,9 @@ namespace WindowsFormsApp1
             index_username = receivedData_global.IndexOf("usrn:") + 5;
             index_password = receivedData_global.IndexOf("pssw:") + 5;
             index_end = receivedData_global.IndexOf("\r") + 1;
-            label22.Text = receivedData_global.Substring(index_platform, index_username - index_platform - 5);
-            label21.Text = receivedData_global.Substring(index_username, index_password - index_username - 5);
-            label20.Text = receivedData_global.Substring(index_password, index_end - index_password - 1);
+            label22.Text = decode(receivedData_global.Substring(index_platform, index_username - index_platform - 6));
+            label21.Text = decode(receivedData_global.Substring(index_username, index_password - index_username - 6));
+            label20.Text = decode(receivedData_global.Substring(index_password, index_end - index_password - 1));
 
             receivedData_global = null;
             receivedData_global = serialPort.ReadLine();
@@ -204,9 +215,9 @@ namespace WindowsFormsApp1
             index_username = receivedData_global.IndexOf("usrn:") + 5;
             index_password = receivedData_global.IndexOf("pssw:") + 5;
             index_end = receivedData_global.IndexOf("\r") + 1;
-            label25.Text = receivedData_global.Substring(index_platform, index_username - index_platform - 5);
-            label24.Text = receivedData_global.Substring(index_username, index_password - index_username - 5);
-            label23.Text = receivedData_global.Substring(index_password, index_end - index_password - 1);
+            label25.Text = decode(receivedData_global.Substring(index_platform, index_username - index_platform - 6));
+            label24.Text = decode(receivedData_global.Substring(index_username, index_password - index_username - 6));
+            label23.Text = decode(receivedData_global.Substring(index_password, index_end - index_password - 1));
 
             receivedData_global = null;
             receivedData_global = serialPort.ReadLine();
@@ -219,9 +230,9 @@ namespace WindowsFormsApp1
             index_username = receivedData_global.IndexOf("usrn:") + 5;
             index_password = receivedData_global.IndexOf("pssw:") + 5;
             index_end = receivedData_global.IndexOf("\r") + 1;
-            label28.Text = receivedData_global.Substring(index_platform, index_username - index_platform - 5);
-            label27.Text = receivedData_global.Substring(index_username, index_password - index_username - 5);
-            label26.Text = receivedData_global.Substring(index_password, index_end - index_password - 1);
+            label28.Text = decode(receivedData_global.Substring(index_platform, index_username - index_platform - 6));
+            label27.Text = decode(receivedData_global.Substring(index_username, index_password - index_username - 6));
+            label26.Text = decode(receivedData_global.Substring(index_password, index_end - index_password - 1));
 
             receivedData_global = null;
             receivedData_global = serialPort.ReadLine();
@@ -234,9 +245,9 @@ namespace WindowsFormsApp1
             index_username = receivedData_global.IndexOf("usrn:") + 5;
             index_password = receivedData_global.IndexOf("pssw:") + 5;
             index_end = receivedData_global.IndexOf("\r") + 1;
-            label31.Text = receivedData_global.Substring(index_platform, index_username - index_platform - 5);
-            label30.Text = receivedData_global.Substring(index_username, index_password - index_username - 5);
-            label29.Text = receivedData_global.Substring(index_password, index_end - index_password - 1);
+            label31.Text = decode(receivedData_global.Substring(index_platform, index_username - index_platform - 6));
+            label30.Text = decode(receivedData_global.Substring(index_username, index_password - index_username - 6));
+            label29.Text = decode(receivedData_global.Substring(index_password, index_end - index_password - 1));
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -30,6 +30,17 @@ namespace WindowsFormsApp1
             }
         }
 
+        private string encode(string info)
+        {
+            char[] chars = info.ToCharArray();
+
+            for (int i = 0; i < chars.Length; i++)
+            {
+                chars[i] = (char)(chars[i] - 1);
+            }
+            return new string(chars);
+        }
+
         private void SendDataToESP32(string data)
         {
             try
@@ -78,8 +89,8 @@ namespace WindowsFormsApp1
                 else
                 {
                     SendDataToESP32("change_login"+'\n');
-                    SendDataToESP32(textBox1.Text + ':');
-                    SendDataToESP32(textBox2.Text + ':');
+                    SendDataToESP32(encode(textBox1.Text) + ':');
+                    SendDataToESP32(encode(textBox2.Text) + ':');
                     string data = null;
                     while (data != "done\r")
                     {

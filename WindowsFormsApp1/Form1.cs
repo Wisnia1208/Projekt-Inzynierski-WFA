@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using System.IO.Ports;
 using System.Reflection;
 using System.Threading;
+using System.Security.Cryptography;
 
 namespace WindowsFormsApp1
 {
@@ -21,6 +22,16 @@ namespace WindowsFormsApp1
         private string receivedData_global=null;
         private int login_count=0;
         //private object textBoxReceivedData;
+        private string encode(string info)
+        {
+            char[] chars = info.ToCharArray();
+
+            for (int i = 0; i < chars.Length; i++)
+            {
+                chars[i] = (char)(chars[i] - 1);
+            }
+            return new string(chars);
+        }
 
         public Form1()
         {
@@ -38,8 +49,8 @@ namespace WindowsFormsApp1
 
         private async void btnLogin_Click(object sender, EventArgs e)
         {
-            string username = textBox1.Text;
-            string password = maskedTextBox1.Text;
+            string username = encode(textBox1.Text);
+            string password = encode(maskedTextBox1.Text);
 
             string data_tosend = $"Username: {username}, Password: {password}";
 
@@ -65,7 +76,7 @@ namespace WindowsFormsApp1
             else if (receivedData_global == "incorrect login data\r")
             {
                 login_count++;
-                if (login_count >= 4)
+                if (login_count >= 10)
                 {
                     SendDataToESP32("emergency_reset");          
                     MessageBox.Show("zresetowano wszystkie dane :) nazwa użytkownika to \"uzytkownik1\", a hasło to  \"haslo1\"");
