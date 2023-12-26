@@ -17,11 +17,66 @@ namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
-        public const string COM = "COM4";
-        private SerialPort serialPort = new SerialPort(COM, 115200);
+        public SerialPort serialPort;
         private string receivedData_global=null;
         private int login_count=0;
-        //private object textBoxReceivedData;
+        
+
+        public Form1()
+        {
+            InitializeComponent();
+            FindESP32Port();
+            this.FormClosing += Form1_FormClosing;
+        }
+
+        private void FindESP32Port()
+        {
+            string[] portNames = SerialPort.GetPortNames();
+
+            foreach (string portName in portNames)
+            {
+                try
+                {
+                    using (SerialPort port = new SerialPort(portName))
+                    {
+                        port.BaudRate = 115200; // Ustawienia zgodne z ESP32
+                        port.ReadTimeout = 5000; // Timeout odczytu w milisekundach
+
+                        port.Open();
+
+                        // Wysłanie dowolnej informacji do ESP32
+                        port.WriteLine("Test");
+
+                        // Odczytanie odpowiedzi
+                        string response = port.ReadLine();
+
+                        // Sprawdzenie, czy odpowiedź zawiera oczekiwaną frazę
+                        if (response.Contains("incorrect login data\r"))
+                        {
+                            serialPort = port; // Przypisanie portu do obiektu SerialPort
+                            MessageBox.Show($"ESP32 znaleziony na porcie: {portName}", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Obsługa wyjątków, na przykład gdy nie można otworzyć portu
+                    Console.WriteLine($"Błąd przy sprawdzaniu portu {portName}: {ex.Message}");
+                }
+            }
+
+            MessageBox.Show("ESP32 not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (serialPort.IsOpen)
+            {
+                serialPort.Close();
+            }
+        }
+
         private string encode(string info)
         {
             char[] chars = info.ToCharArray();
@@ -31,20 +86,6 @@ namespace WindowsFormsApp1
                 chars[i] = (char)(chars[i] - 1);
             }
             return new string(chars);
-        }
-
-        public Form1()
-        {
-            InitializeComponent();
-            this.FormClosing += Form1_FormClosing;
-        }
-
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (serialPort.IsOpen)
-            {
-                serialPort.Close();
-            }
         }
 
         private async void btnLogin_Click(object sender, EventArgs e)
@@ -68,7 +109,7 @@ namespace WindowsFormsApp1
                 {
                     serialPort.Close();
                 }
-                var newform = new Form2(this);
+                var newform = new Form2(this,serialPort);
                 newform.Show();
                 this.Hide();
                 //this.Close();
@@ -120,7 +161,5 @@ namespace WindowsFormsApp1
             }
             
         }
-        
-
     }
 }

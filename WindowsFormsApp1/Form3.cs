@@ -14,11 +14,12 @@ namespace WindowsFormsApp1
     public partial class Form3 : Form
     {
         private int index;
-        private SerialPort serialPort = new SerialPort(Form1.COM, 115200);
-        public Form3(int index_i)
+        private SerialPort serialPort;// = new SerialPort(Form1.COM, 115200);
+        public Form3(int index_i,SerialPort serialPort)
         {
             InitializeComponent();
             index = index_i;
+            this.serialPort = serialPort;
             this.FormClosing += Form3_FormClosing;
         }
         private void Form3_FormClosing(object sender, FormClosingEventArgs e)

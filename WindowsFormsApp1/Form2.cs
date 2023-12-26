@@ -18,13 +18,14 @@ namespace WindowsFormsApp1
     public partial class Form2 : Form
     {
         private Form1 form1Reference;
-        private SerialPort serialPort = new SerialPort(Form1.COM, 115200);
+        private SerialPort serialPort;// = Form1.serialPort;//new SerialPort(Form1.COM, 115200);
         private string receivedData_global;
 
-        public Form2(Form1 form1)
+        public Form2(Form1 form1,SerialPort serialPort)
         {
             InitializeComponent();
             form1Reference = form1;
+            this.serialPort=serialPort;
             this.FormClosing += Form2_FormClosing;
         }
 
@@ -256,7 +257,7 @@ namespace WindowsFormsApp1
             {
                 serialPort.Close();
             }
-            var newform = new Form3(0);
+            var newform = new Form3(0,serialPort);
             newform.Show();
         }
 
@@ -267,7 +268,7 @@ namespace WindowsFormsApp1
                 {
                     serialPort.Close();
                 }
-                var newform = new Form3(1);
+                var newform = new Form3(1,serialPort);
                 newform.Show();
             }
         }
@@ -279,7 +280,7 @@ namespace WindowsFormsApp1
                 {
                     serialPort.Close();
                 }
-                var newform = new Form3(9);
+                var newform = new Form3(9, serialPort);
                 newform.Show();
             }
         }
@@ -291,7 +292,7 @@ namespace WindowsFormsApp1
                 {
                     serialPort.Close();
                 }
-                var newform = new Form3(2);
+                var newform = new Form3(2,serialPort);
                 newform.Show();
             }
         }
@@ -303,7 +304,7 @@ namespace WindowsFormsApp1
                 {
                     serialPort.Close();
                 }
-                var newform = new Form3(3);
+                var newform = new Form3(3, serialPort);
                 newform.Show();
             }
         }
@@ -315,7 +316,7 @@ namespace WindowsFormsApp1
                 {
                     serialPort.Close();
                 }
-                var newform = new Form3(4);
+                var newform = new Form3(4,serialPort);
                 newform.Show();
             }
         }
@@ -327,7 +328,7 @@ namespace WindowsFormsApp1
                 {
                     serialPort.Close();
                 }
-                var newform = new Form3(5);
+                var newform = new Form3(5, serialPort);
                 newform.Show();
             }
         }
@@ -339,7 +340,7 @@ namespace WindowsFormsApp1
                 {
                     serialPort.Close();
                 }
-                var newform = new Form3(6);
+                var newform = new Form3(6, serialPort);
                 newform.Show();
             }
         }
@@ -351,7 +352,7 @@ namespace WindowsFormsApp1
                 {
                     serialPort.Close();
                 }
-                var newform = new Form3(7);
+                var newform = new Form3(7, serialPort);
                 newform.Show();
             }
         }
@@ -363,7 +364,7 @@ namespace WindowsFormsApp1
                 {
                     serialPort.Close();
                 }
-                var newform = new Form3(8);
+                var newform = new Form3(8, serialPort);
                 newform.Show();
             }
         }
@@ -481,7 +482,7 @@ namespace WindowsFormsApp1
                 {
                     serialPort.Close();
                 }
-                var newform = new Form4();
+                var newform = new Form4(serialPort);
                 newform.Show();
             }
         }

@@ -15,10 +15,11 @@ namespace WindowsFormsApp1
 {
     public partial class Form4 : Form
     {
-        private SerialPort serialPort = new SerialPort(Form1.COM, 115200);
-        public Form4()
+        private SerialPort serialPort;// = new SerialPort(Form1.COM, 115200);
+        public Form4(SerialPort serialPort)
         {
             InitializeComponent();
+            this.serialPort = serialPort;
             this.FormClosing += Form4_FormClosing;
         }
 
