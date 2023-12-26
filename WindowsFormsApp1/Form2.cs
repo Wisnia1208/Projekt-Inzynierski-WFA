@@ -462,5 +462,17 @@ namespace WindowsFormsApp1
             SimulateKeyboardInput(label29.Text);
             SendKeys.SendWait("{ENTER}");
         }
+
+        private void button22_Click(object sender, EventArgs e)
+        {
+            {
+                if (serialPort.IsOpen)
+                {
+                    serialPort.Close();
+                }
+                var newform = new Form4();
+                newform.Show();
+            }
+        }
     }
 }

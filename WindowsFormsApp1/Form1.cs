@@ -18,49 +18,14 @@ namespace WindowsFormsApp1
     {
         public const string COM = "COM4";
         private SerialPort serialPort = new SerialPort(COM, 115200);
-        private string receivedData_global;
+        private string receivedData_global=null;
+        private int login_count=0;
         //private object textBoxReceivedData;
 
         public Form1()
         {
             InitializeComponent();
             this.FormClosing += Form1_FormClosing;
-        }
-
-        private void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
-        {
-            // Ta metoda zostanie wywołana, gdy dane zostaną odebrane przez port COM
-
-            try
-            {
-                // Odczytanie dostępnych danych
-                string receivedData = "";
-                //receivedData = serialPort.ReadExisting();
-                receivedData = serialPort.ReadLine();
-                if (receivedData != "")
-                {
-                    receivedData_global = receivedData;
-                }
-
-                
-                /*if(receivedData == "correct login data\r")
-                {
-                    //SimulateKeyboardInput("tutaj zrobic drugi panel bo dane dobre");
-                    
-                }
-                else
-                {
-                    SimulateKeyboardInput(receivedData);
-                }*/
-
-                //MessageBox.Show(receivedData);
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Błąd podczas odczytywania danych: {ex.Message}", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -76,30 +41,14 @@ namespace WindowsFormsApp1
             string username = textBox1.Text;
             string password = maskedTextBox1.Text;
 
-            // Przesyłaj dane do ESP32 przez interfejs szeregowy (Serial)
-            SendDataToESP32($"Username: {username}, Password: {password}");
+            string data_tosend = $"Username: {username}, Password: {password}";
 
-            // Inicjalizacja portu szeregowego
+            SendDataToESP32(data_tosend);
 
-            serialPort.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
-            //Thread.Sleep(1000);
-
-            if (!serialPort.IsOpen)
-            {
-                try
-                {
-                    // Otwarcie portu
-                    serialPort.Open();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Błąd podczas otwierania portu1: {ex.Message}", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-
-            while (receivedData_global == null)
+            while (receivedData_global != "correct login data\r" && receivedData_global != "incorrect login data\r")
             {
                 await Task.Delay(100); // Odczekaj krótki czas przed ponownym sprawdzeniem
+                receivedData_global=serialPort.ReadLine();
             }
 
             if (receivedData_global == "correct login data\r")
@@ -115,7 +64,22 @@ namespace WindowsFormsApp1
             }
             else if (receivedData_global == "incorrect login data\r")
             {
-                MessageBox.Show("bad login");
+                login_count++;
+                if (login_count >= 4)
+                {
+                    SendDataToESP32("emergency_reset");          
+                    MessageBox.Show("zresetowano wszystkie dane :) nazwa użytkownika to \"uzytkownik1\", a hasło to  \"haslo1\"");
+                    login_count = 0;
+                    if (serialPort.IsOpen)
+                    {
+                        serialPort.Close();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("podano złe dane logowania po raz " + $"{login_count}");
+                }
+                
             }
             receivedData_global = null;
         }

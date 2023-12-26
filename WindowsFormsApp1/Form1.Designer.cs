@@ -37,14 +37,14 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(289, 71);
+            this.textBox1.Location = new System.Drawing.Point(85, 56);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 0;
             // 
             // maskedTextBox1
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(289, 139);
+            this.maskedTextBox1.Location = new System.Drawing.Point(85, 124);
             this.maskedTextBox1.Name = "maskedTextBox1";
             this.maskedTextBox1.Size = new System.Drawing.Size(100, 20);
             this.maskedTextBox1.TabIndex = 1;
@@ -52,24 +52,24 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(289, 120);
+            this.label1.Location = new System.Drawing.Point(85, 105);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 13);
+            this.label1.Size = new System.Drawing.Size(34, 13);
             this.label1.TabIndex = 2;
-            this.label1.Text = "password";
+            this.label1.Text = "hasło";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(289, 52);
+            this.label2.Location = new System.Drawing.Point(85, 37);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(27, 13);
+            this.label2.Size = new System.Drawing.Size(60, 13);
             this.label2.TabIndex = 3;
-            this.label2.Text = "user";
+            this.label2.Text = "użytkownik";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(289, 194);
+            this.button1.Location = new System.Drawing.Point(85, 179);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 4;
@@ -81,14 +81,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(266, 246);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.maskedTextBox1);
             this.Controls.Add(this.textBox1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Zaloguj";
             this.ResumeLayout(false);
             this.PerformLayout();
 
