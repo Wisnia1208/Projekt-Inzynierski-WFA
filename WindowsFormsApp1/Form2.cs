@@ -356,5 +356,111 @@ namespace WindowsFormsApp1
                 newform.Show();
             }
         }
+
+        private void SimulateKeyboardInput(string textToType)
+        {
+            // Odczekaj kilka sekund przed rozpoczęciem symulacji
+            //Thread.Sleep(2000);
+
+            // Symuluj naciśnięcie i zwolnienie każdego znaku w tekście
+            foreach (char c in textToType)
+            {
+                // Symuluj naciśnięcie klawisza
+                SendKeys.SendWait(c.ToString());
+
+                // Odczekaj krótki czas przed przesłaniem kolejnego znaku
+                //Thread.Sleep(100);
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Thread.Sleep(3000);
+            SimulateKeyboardInput(label3.Text);
+            SendKeys.SendWait("{TAB}");
+            SimulateKeyboardInput(label4.Text);
+            SendKeys.SendWait("{ENTER}");
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Thread.Sleep(3000);
+            SimulateKeyboardInput(label6.Text);
+            SendKeys.SendWait("{TAB}");
+            SimulateKeyboardInput(label5.Text);
+            SendKeys.SendWait("{ENTER}");
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Thread.Sleep(3000);
+            SimulateKeyboardInput(label9.Text);
+            SendKeys.SendWait("{TAB}");
+            SimulateKeyboardInput(label8.Text);
+            SendKeys.SendWait("{ENTER}");
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            Thread.Sleep(3000);
+            SimulateKeyboardInput(label12.Text);
+            SendKeys.SendWait("{TAB}");
+            SimulateKeyboardInput(label11.Text);
+            SendKeys.SendWait("{ENTER}");
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            Thread.Sleep(3000);
+            SimulateKeyboardInput(label15.Text);
+            SendKeys.SendWait("{TAB}");
+            SimulateKeyboardInput(label14.Text);
+            SendKeys.SendWait("{ENTER}");
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            Thread.Sleep(3000);
+            SimulateKeyboardInput(label18.Text);
+            SendKeys.SendWait("{TAB}");
+            SimulateKeyboardInput(label17.Text);
+            SendKeys.SendWait("{ENTER}");
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            Thread.Sleep(3000);
+            SimulateKeyboardInput(label21.Text);
+            SendKeys.SendWait("{TAB}");
+            SimulateKeyboardInput(label20.Text);
+            SendKeys.SendWait("{ENTER}");
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            Thread.Sleep(3000);
+            SimulateKeyboardInput(label24.Text);
+            SendKeys.SendWait("{TAB}");
+            SimulateKeyboardInput(label23.Text);
+            SendKeys.SendWait("{ENTER}");
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            Thread.Sleep(3000);
+            SimulateKeyboardInput(label27.Text);
+            SendKeys.SendWait("{TAB}");
+            SimulateKeyboardInput(label26.Text);
+            SendKeys.SendWait("{ENTER}");
+        }
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+            Thread.Sleep(3000);
+            SimulateKeyboardInput(label30.Text);
+            SendKeys.SendWait("{TAB}");
+            SimulateKeyboardInput(label29.Text);
+            SendKeys.SendWait("{ENTER}");
+        }
     }
 }

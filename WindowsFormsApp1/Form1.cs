@@ -145,21 +145,7 @@ namespace WindowsFormsApp1
             }
             
         }
-        private void SimulateKeyboardInput(string textToType)
-        {
-            // Odczekaj kilka sekund przed rozpoczęciem symulacji
-            Thread.Sleep(2000);
-
-            // Symuluj naciśnięcie i zwolnienie każdego znaku w tekście
-            foreach (char c in textToType)
-            {
-                // Symuluj naciśnięcie klawisza
-                SendKeys.SendWait(c.ToString());
-
-                // Odczekaj krótki czas przed przesłaniem kolejnego znaku
-                //Thread.Sleep(100);
-            }
-        }
+        
 
     }
 }

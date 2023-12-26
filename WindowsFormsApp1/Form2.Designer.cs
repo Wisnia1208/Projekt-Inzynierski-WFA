@@ -136,6 +136,7 @@
             this.button2.TabIndex = 5;
             this.button2.Text = "wprowadź";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -145,6 +146,7 @@
             this.button3.TabIndex = 10;
             this.button3.Text = "wprowadź";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
@@ -191,6 +193,7 @@
             this.button5.TabIndex = 15;
             this.button5.Text = "wprowadź";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
@@ -237,6 +240,7 @@
             this.button7.TabIndex = 20;
             this.button7.Text = "wprowadź";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button8
             // 
@@ -283,6 +287,7 @@
             this.button9.TabIndex = 25;
             this.button9.Text = "wprowadź";
             this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // button10
             // 
@@ -329,6 +334,7 @@
             this.button11.TabIndex = 30;
             this.button11.Text = "wprowadź";
             this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // button12
             // 
@@ -375,6 +381,7 @@
             this.button13.TabIndex = 35;
             this.button13.Text = "wprowadź";
             this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // button14
             // 
@@ -421,6 +428,7 @@
             this.button15.TabIndex = 40;
             this.button15.Text = "wprowadź";
             this.button15.UseVisualStyleBackColor = true;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
             // 
             // button16
             // 
@@ -467,6 +475,7 @@
             this.button17.TabIndex = 45;
             this.button17.Text = "wprowadź";
             this.button17.UseVisualStyleBackColor = true;
+            this.button17.Click += new System.EventHandler(this.button17_Click);
             // 
             // button18
             // 
@@ -513,6 +522,7 @@
             this.button19.TabIndex = 50;
             this.button19.Text = "wprowadź";
             this.button19.UseVisualStyleBackColor = true;
+            this.button19.Click += new System.EventHandler(this.button19_Click);
             // 
             // button20
             // 
