@@ -30,7 +30,7 @@ namespace WindowsFormsApp1
             {
                 MessageBox.Show("ESP32 nie znaleziono. Aplikacja ulegnie zamknięciu.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 quit_flag = true;
-                //Application.Exit(); //nwm czemu nie działa jakby chciała
+                Application.Exit(); //nwm czemu nie działa jakby chciała
             }
             this.FormClosing += Form1_FormClosing;
         }
@@ -46,30 +46,22 @@ namespace WindowsFormsApp1
                     using (SerialPort port = new SerialPort(portName))
                     {
                         port.BaudRate = 115200; // Ustawienia zgodne z ESP32
-                        port.ReadTimeout = 100; // Timeout odczytu w milisekundach
-
+                        port.ReadTimeout = 1000; // Timeout odczytu w milisekundach
                         port.Open();
-
-                        // Wysłanie dowolnej informacji do ESP32
                         port.WriteLine("Test");
-
-                        // Odczytanie odpowiedzi
                         string response = port.ReadLine();
-
-                        // Sprawdzenie, czy odpowiedź zawiera oczekiwaną frazę
                         if (response.Contains("incorrect login data\r"))
                         {
-                            serialPort = port; // Przypisanie portu do obiektu SerialPort
+                            serialPort = port;
                             MessageBox.Show($"ESP32 znaleziony na porcie: {portName}", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            port.ReadTimeout = 10000; // ważne bo psuje potem załaduj w form2
                             return true;
                         }
                     }
                 }
                 catch (Exception ex)
                 {
-                    // Obsługa wyjątków, na przykład gdy nie można otworzyć portu
                     MessageBox.Show($"Błąd przy sprawdzaniu portu {portName}: {ex.Message}");
-                    return true;
                 }
                 
             }
