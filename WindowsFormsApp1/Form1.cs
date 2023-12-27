@@ -57,6 +57,7 @@ namespace WindowsFormsApp1
                             port.ReadTimeout = 10000; // ważne bo psuje potem załaduj w form2
                             return true;
                         }
+                        continue; 
                     }
                 }
                 catch (Exception ex)
