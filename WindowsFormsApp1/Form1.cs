@@ -30,7 +30,7 @@ namespace WindowsFormsApp1
             {
                 MessageBox.Show("ESP32 nie znaleziono. Aplikacja ulegnie zamknięciu.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 quit_flag = true;
-                Application.Exit();
+                //Application.Exit(); //nwm czemu nie działa jakby chciała
             }
             this.FormClosing += Form1_FormClosing;
         }
@@ -68,8 +68,10 @@ namespace WindowsFormsApp1
                 catch (Exception ex)
                 {
                     // Obsługa wyjątków, na przykład gdy nie można otworzyć portu
-                    Console.WriteLine($"Błąd przy sprawdzaniu portu {portName}: {ex.Message}");
+                    MessageBox.Show($"Błąd przy sprawdzaniu portu {portName}: {ex.Message}");
+                    return true;
                 }
+                
             }
 
             //MessageBox.Show("ESP32 nie znaleziono", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
