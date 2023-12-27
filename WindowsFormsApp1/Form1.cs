@@ -20,16 +20,22 @@ namespace WindowsFormsApp1
         public SerialPort serialPort;
         private string receivedData_global=null;
         private int login_count=0;
+        private bool quit_flag = false;
         
 
         public Form1()
         {
             InitializeComponent();
-            FindESP32Port();
+            if (!FindESP32Port())
+            {
+                MessageBox.Show("ESP32 nie znaleziono. Aplikacja ulegnie zamknięciu.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                quit_flag = true;
+                Application.Exit();
+            }
             this.FormClosing += Form1_FormClosing;
         }
 
-        private void FindESP32Port()
+        private bool FindESP32Port()
         {
             string[] portNames = SerialPort.GetPortNames();
 
@@ -55,7 +61,7 @@ namespace WindowsFormsApp1
                         {
                             serialPort = port; // Przypisanie portu do obiektu SerialPort
                             MessageBox.Show($"ESP32 znaleziony na porcie: {portName}", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            return;
+                            return true;
                         }
                     }
                 }
@@ -66,12 +72,13 @@ namespace WindowsFormsApp1
                 }
             }
 
-            MessageBox.Show("ESP32 not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //MessageBox.Show("ESP32 nie znaleziono", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return false;
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (serialPort.IsOpen)
+            if (serialPort != null && serialPort.IsOpen)
             {
                 serialPort.Close();
             }
@@ -90,6 +97,13 @@ namespace WindowsFormsApp1
 
         private async void btnLogin_Click(object sender, EventArgs e)
         {
+            if(quit_flag)
+            {
+                this.Close();
+                Application.Exit();
+                return;
+                
+            }
             string username = encode(textBox1.Text);
             string password = encode(maskedTextBox1.Text);
 
