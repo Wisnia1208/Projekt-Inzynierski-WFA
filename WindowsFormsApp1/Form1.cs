@@ -46,7 +46,7 @@ namespace WindowsFormsApp1
                     using (SerialPort port = new SerialPort(portName))
                     {
                         port.BaudRate = 115200; // Ustawienia zgodne z ESP32
-                        port.ReadTimeout = 5000; // Timeout odczytu w milisekundach
+                        port.ReadTimeout = 100; // Timeout odczytu w milisekundach
 
                         port.Open();
 
