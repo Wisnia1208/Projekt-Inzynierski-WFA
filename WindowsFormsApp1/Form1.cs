@@ -62,7 +62,7 @@ namespace WindowsFormsApp1
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Błąd przy sprawdzaniu portu {portName}: {ex.Message}");
+                    //MessageBox.Show($"Błąd przy sprawdzaniu portu {portName}: {ex.Message}");
                 }
                 
             }
