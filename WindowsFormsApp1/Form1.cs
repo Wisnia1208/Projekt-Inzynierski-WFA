@@ -30,7 +30,7 @@ namespace WindowsFormsApp1
             {
                 MessageBox.Show("ESP32 nie znaleziono. Aplikacja ulegnie zamknięciu.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 quit_flag = true;
-                Application.Exit(); //nwm czemu nie działa jakby chciała
+                Application.Exit();
             }
             this.FormClosing += Form1_FormClosing;
         }
@@ -45,8 +45,8 @@ namespace WindowsFormsApp1
                 {
                     using (SerialPort port = new SerialPort(portName))
                     {
-                        port.BaudRate = 115200; // Ustawienia zgodne z ESP32
-                        port.ReadTimeout = 1000; // Timeout odczytu w milisekundach
+                        port.BaudRate = 115200;
+                        port.ReadTimeout = 1000;
                         port.Open();
                         port.WriteLine("Test");
                         string response = port.ReadLine();
@@ -54,7 +54,7 @@ namespace WindowsFormsApp1
                         {
                             serialPort = port;
                             MessageBox.Show($"ESP32 znaleziony na porcie: {portName}", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            port.ReadTimeout = 10000; // ważne bo psuje potem załaduj w form2
+                            port.ReadTimeout = 10000;
                             return true;
                         }
                         continue; 
@@ -62,12 +62,11 @@ namespace WindowsFormsApp1
                 }
                 catch (Exception ex)
                 {
-                    //MessageBox.Show($"Błąd przy sprawdzaniu portu {portName}: {ex.Message}");
+                    
                 }
                 
             }
 
-            //MessageBox.Show("ESP32 nie znaleziono", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return false;
         }
 
@@ -108,7 +107,7 @@ namespace WindowsFormsApp1
 
             while (receivedData_global != "correct login data\r" && receivedData_global != "incorrect login data\r")
             {
-                await Task.Delay(100); // Odczekaj krótki czas przed ponownym sprawdzeniem
+                await Task.Delay(100);
                 receivedData_global=serialPort.ReadLine();
             }
 
@@ -162,7 +161,6 @@ namespace WindowsFormsApp1
                     }                 
 
                     serialPort.Write(data);
-                    //serialPort.Close();
             }
             catch (Exception ex)
             {

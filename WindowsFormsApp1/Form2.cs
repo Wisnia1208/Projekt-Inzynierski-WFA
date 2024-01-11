@@ -18,7 +18,7 @@ namespace WindowsFormsApp1
     public partial class Form2 : Form
     {
         private Form1 form1Reference;
-        private SerialPort serialPort;// = Form1.serialPort;//new SerialPort(Form1.COM, 115200);
+        private SerialPort serialPort;
         private string receivedData_global;
 
         public Form2(Form1 form1,SerialPort serialPort)
@@ -31,7 +31,6 @@ namespace WindowsFormsApp1
 
         private void Form2_FormClosing(object sender, FormClosingEventArgs e)
         {
-            // Zamknij Form1 po zamknięciu Form2
             form1Reference.Close();
             Application.Exit();
         }
@@ -49,12 +48,10 @@ namespace WindowsFormsApp1
 
         private void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
         {
-            // Ta metoda zostanie wywołana, gdy dane zostaną odebrane przez port COM
-
+   
 
             try
             {
-                // Odczytanie dostępnych danych
                 string receivedData = "";
                 receivedData = serialPort.ReadLine();
                 if (receivedData != "")
@@ -87,7 +84,6 @@ namespace WindowsFormsApp1
                 }
 
                 serialPort.Write(data);
-                //serialPort.Close();
             }
             catch (Exception ex)
             {
@@ -103,7 +99,7 @@ namespace WindowsFormsApp1
             receivedData_global = serialPort.ReadLine();
             while (receivedData_global == null)
             {
-                await Task.Delay(100); // Odczekaj krótki czas przed ponownym sprawdzeniem
+                await Task.Delay(100);
                 receivedData_global = serialPort.ReadLine();
             }
             int index_platform = receivedData_global.IndexOf("ptfr:") + 5;
@@ -119,7 +115,7 @@ namespace WindowsFormsApp1
             receivedData_global = serialPort.ReadLine();
             while (receivedData_global == null)
             {
-                await Task.Delay(100); // Odczekaj krótki czas przed ponownym sprawdzeniem
+                await Task.Delay(100);
                 receivedData_global = serialPort.ReadLine();
             }
             index_platform = receivedData_global.IndexOf("ptfr:") + 5;
@@ -134,7 +130,7 @@ namespace WindowsFormsApp1
             receivedData_global = serialPort.ReadLine();
             while (receivedData_global == null)
             {
-                await Task.Delay(100); // Odczekaj krótki czas przed ponownym sprawdzeniem
+                await Task.Delay(100);
                 receivedData_global = serialPort.ReadLine();
             }
             index_platform = receivedData_global.IndexOf("ptfr:") + 5;
@@ -149,7 +145,7 @@ namespace WindowsFormsApp1
             receivedData_global = serialPort.ReadLine();
             while (receivedData_global == null)
             {
-                await Task.Delay(100); // Odczekaj krótki czas przed ponownym sprawdzeniem
+                await Task.Delay(100);
                 receivedData_global = serialPort.ReadLine();
             }
             index_platform = receivedData_global.IndexOf("ptfr:") + 5;
@@ -164,7 +160,7 @@ namespace WindowsFormsApp1
             receivedData_global = serialPort.ReadLine();
             while (receivedData_global == null)
             {
-                await Task.Delay(100); // Odczekaj krótki czas przed ponownym sprawdzeniem
+                await Task.Delay(100);
                 receivedData_global = serialPort.ReadLine();
             }
             index_platform = receivedData_global.IndexOf("ptfr:") + 5;
@@ -179,7 +175,7 @@ namespace WindowsFormsApp1
             receivedData_global = serialPort.ReadLine();
             while (receivedData_global == null)
             {
-                await Task.Delay(100); // Odczekaj krótki czas przed ponownym sprawdzeniem
+                await Task.Delay(100);
                 receivedData_global = serialPort.ReadLine();
             }
             index_platform = receivedData_global.IndexOf("ptfr:") + 5;
@@ -194,7 +190,7 @@ namespace WindowsFormsApp1
             receivedData_global = serialPort.ReadLine();
             while (receivedData_global == null)
             {
-                await Task.Delay(100); // Odczekaj krótki czas przed ponownym sprawdzeniem
+                await Task.Delay(100);
                 receivedData_global = serialPort.ReadLine();
             }
             index_platform = receivedData_global.IndexOf("ptfr:") + 5;
@@ -209,7 +205,7 @@ namespace WindowsFormsApp1
             receivedData_global = serialPort.ReadLine();
             while (receivedData_global == null)
             {
-                await Task.Delay(100); // Odczekaj krótki czas przed ponownym sprawdzeniem
+                await Task.Delay(100);
                 receivedData_global = serialPort.ReadLine();
             }
             index_platform = receivedData_global.IndexOf("ptfr:") + 5;
@@ -224,7 +220,7 @@ namespace WindowsFormsApp1
             receivedData_global = serialPort.ReadLine();
             while (receivedData_global == null)
             {
-                await Task.Delay(100); // Odczekaj krótki czas przed ponownym sprawdzeniem
+                await Task.Delay(100);
                 receivedData_global = serialPort.ReadLine();
             }
             index_platform = receivedData_global.IndexOf("ptfr:") + 5;
@@ -239,7 +235,7 @@ namespace WindowsFormsApp1
             receivedData_global = serialPort.ReadLine();
             while (receivedData_global == null)
             {
-                await Task.Delay(100); // Odczekaj krótki czas przed ponownym sprawdzeniem
+                await Task.Delay(100);
                 receivedData_global = serialPort.ReadLine();
             }
             index_platform = receivedData_global.IndexOf("ptfr:") + 5;
@@ -371,17 +367,9 @@ namespace WindowsFormsApp1
 
         private void SimulateKeyboardInput(string textToType)
         {
-            // Odczekaj kilka sekund przed rozpoczęciem symulacji
-            //Thread.Sleep(2000);
-
-            // Symuluj naciśnięcie i zwolnienie każdego znaku w tekście
             foreach (char c in textToType)
             {
-                // Symuluj naciśnięcie klawisza
                 SendKeys.SendWait(c.ToString());
-
-                // Odczekaj krótki czas przed przesłaniem kolejnego znaku
-                //Thread.Sleep(100);
             }
         }
 

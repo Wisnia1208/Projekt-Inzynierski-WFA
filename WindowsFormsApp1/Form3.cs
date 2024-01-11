@@ -14,7 +14,7 @@ namespace WindowsFormsApp1
     public partial class Form3 : Form
     {
         private int index;
-        private SerialPort serialPort;// = new SerialPort(Form1.COM, 115200);
+        private SerialPort serialPort;
         public Form3(int index_i,SerialPort serialPort)
         {
             InitializeComponent();
@@ -58,7 +58,6 @@ namespace WindowsFormsApp1
                 }
 
                 serialPort.Write(data);
-                //serialPort.Close();
             }
             catch (Exception ex)
             {
@@ -105,7 +104,7 @@ namespace WindowsFormsApp1
                     string data = null;
                     while(data != "done\r")
                     {
-                        await Task.Delay(100); // Odczekaj krótki czas przed ponownym sprawdzeniem
+                        await Task.Delay(100);
                         data = serialPort.ReadLine();
                     }
                     MessageBox.Show("zmieniono dane");
