@@ -47,6 +47,7 @@ namespace WindowsFormsApp1
                     {
                         port.BaudRate = 115200;
                         port.ReadTimeout = 1000;
+                        port.WriteTimeout = 1000;
                         port.Open();
                         port.WriteLine("Test");
                         string response = port.ReadLine();
